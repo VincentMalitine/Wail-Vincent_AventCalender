@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Wail_Vincent_AventCalender"
         mc:Ignorable="d"
          Foreground="{DynamicResource Theme_TextBrush}">
+
     <Window.Resources>
         <!-- THEME BRUSHES -->
         <SolidColorBrush x:Key="Red_BackgroundBrush" Color="#B00000" />
@@ -16,7 +17,6 @@
         <SolidColorBrush x:Key="Gold_TextBrush" Color="#3C2510" />
 
         <SolidColorBrush x:Key="Theme_BackgroundBrush" Color="#B00000" />
-        <!-- Default: Red -->
         <SolidColorBrush x:Key="Theme_TextBrush" Color="White" />
 
         <Style TargetType="TextBlock">
@@ -46,7 +46,7 @@
             <ColumnDefinition Width="64"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Header: Advent Calendar Title -->
+        <!-- Header -->
         <TextBlock 
             Text="Calendrier de l'Avent" 
             FontSize="32" 
@@ -54,28 +54,44 @@
             Grid.Row="0" Grid.Column="1" 
             HorizontalAlignment="Center" VerticalAlignment="Top" 
             Margin="0,24,0,8"/>
-
-        <!-- Theme Selector -->
-        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,24,16,0">
-            <TextBlock Text="Thème : " VerticalAlignment="Center" Margin="0,0,8,0"/>
-            <ComboBox x:Name="ThemeSelector" Width="96">
-                <ComboBoxItem Content="Rouge" IsSelected="True" />
-                <ComboBoxItem Content="Vert" />
-                <ComboBoxItem Content="Doré" />
-            </ComboBox>
-        </StackPanel>
-
         <!-- User Personalization -->
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,8">
             <TextBlock x:Name="WelcomeTextBlock" FontSize="18"/>
-            <Button Content="Entrer mon nom" x:Name="BtnEnterName" Margin="16,0"/>
-            <Button Content="Choisir genre" x:Name="BtnChooseGender" Margin="16,0"/>
             <TextBlock x:Name="GenderMessageTextBlock" Margin="16,0,0,0" />
         </StackPanel>
 
-        <!-- Main Content: Calendar Body -->
-        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="32,0,32,32" Padding="32" CornerRadius="16" Background="#CCFFFFFF" VerticalAlignment="Top">
+        <!-- AJOUT : Sélecteur couleur du fond + texte jours restants -->
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,70,0,0">
+
+            <TextBlock Text="Changer la couleur du fond :" FontWeight="Bold"/>
+
+            <ComboBox x:Name="BackgroundColorSelector" Width="211"
+                      SelectionChanged="BackgroundColorSelector_SelectionChanged">
+                <ComboBoxItem Content="Rouge" Tag="#B00000"/>
+                <ComboBoxItem Content="Vert" Tag="#006B00"/>
+                <ComboBoxItem Content="Doré" Tag="#D4AF37"/>
+                <ComboBoxItem Content="Bleu" Tag="#0033CC"/>
+                <ComboBoxItem Content="Blanc" Tag="#FFFFFF"/>
+            </ComboBox>
+            <TextBlock x:Name="DaysBeforeChristmasText"
+                       FontSize="18" FontWeight="Bold"
+                       Text="Il reste 2 jours avant Noël." Height="38" RenderTransformOrigin="0.5,0.5" Width="223">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="3.288"/>
+                        <RotateTransform Angle="-3.216"/>
+                        <TranslateTransform Y="6.358"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </StackPanel>
+        <!-- FIN AJOUT -->
+
+        <!-- Main Content -->
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="32,65,32,0" Padding="32" CornerRadius="16" Background="#CCFFFFFF" VerticalAlignment="Top" Height="331">
             <StackPanel>
+
                 <!-- Countdown Section -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock x:Name="DaysLeftTextBlock" FontSize="24" FontWeight="Bold" />
@@ -83,12 +99,13 @@
                     <TextBlock x:Name="CountdownTextBlock" FontSize="24" FontWeight="Bold" />
                 </StackPanel>
 
-                <!-- Message/Image of the day -->
+                <!-- Message + image -->
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,32,0,0">
                     <TextBlock Text="Message du jour :" FontWeight="SemiBold" FontSize="18" Margin="0,0,0,8"/>
                     <TextBlock x:Name="MessageTextBlock" FontSize="22" TextWrapping="Wrap" TextAlignment="Center" />
                     <Image x:Name="DailyImage" Width="128" Height="128" Margin="0,24,0,0" Stretch="Uniform"/>
                 </StackPanel>
+
             </StackPanel>
         </Border>
     </Grid>
