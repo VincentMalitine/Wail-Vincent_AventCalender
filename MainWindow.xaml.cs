@@ -20,5 +20,15 @@ namespace Wail_Vincent_AventCalender
         {
             InitializeComponent();
         }
+
+        private void BtnEnterName_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnChooseGender_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
