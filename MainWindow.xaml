@@ -94,15 +94,13 @@
 
                 <!-- Countdown Section -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock x:Name="DaysLeftTextBlock" FontSize="24" FontWeight="Bold" />
-                    <TextBlock Text=" | " FontSize="24" Margin="8,0"/>
-                    <TextBlock x:Name="CountDownTextBlock" FontSize="24" FontWeight="Bold" />
+                    <TextBlock x:Name="CountDownTextBlock" HorizontalAlignment="Center" TextAlignment="Center" FontSize="24" FontWeight="Bold" />
                 </StackPanel>
 
                 <!-- Message + image -->
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,32,0,0">
                     <TextBlock Text="Message du jour :" FontWeight="SemiBold" FontSize="18" Margin="0,0,0,8"/>
-                    <TextBlock x:Name="MessageTextBlock" FontSize="22" TextWrapping="Wrap" TextAlignment="Center" />
+                    <TextBlock x:Name="MessageTextBlock" FontSize="22" TextWrapping="Wrap" TextAlignment="Center"/>
                     <Image x:Name="DailyImage" Width="128" Height="128" Margin="0,24,0,0" Stretch="Uniform"/>
                 </StackPanel>
 

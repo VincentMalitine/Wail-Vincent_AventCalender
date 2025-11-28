@@ -122,6 +122,7 @@ namespace Wail_Vincent_AventCalender
             var reste = prochainNoel - maintenant;
             NoelTimer = $"{reste.Days}j {reste.Hours:D2}:{reste.Minutes:D2}:{reste.Seconds:D2}";
             DaysBeforeChristmasTextBlock.Text = $"{reste.Days} jours restants avant Noël!";
+            MessageTextBlock.Text = MessageQuotidien();
         }
         // Fin de mise à jour du string NoelTimer
 
@@ -189,5 +190,11 @@ namespace Wail_Vincent_AventCalender
             }
         }
 
+        private string MessageQuotidien()
+        {
+            string[] messages = (@"PhrasesDuJour.txt").Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            int index = DateTime.Now.Day % messages.Length;
+            return messages[index];
+        }
     }
 }
