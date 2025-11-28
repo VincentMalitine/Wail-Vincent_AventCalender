@@ -96,7 +96,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock x:Name="DaysLeftTextBlock" FontSize="24" FontWeight="Bold" />
                     <TextBlock Text=" | " FontSize="24" Margin="8,0"/>
-                    <TextBlock x:Name="CountdownTextBlock" FontSize="24" FontWeight="Bold" />
+                    <TextBlock x:Name="CountDownTextBlock" FontSize="24" FontWeight="Bold" />
                 </StackPanel>
 
                 <!-- Message + image -->

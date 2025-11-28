@@ -46,7 +46,7 @@ namespace Wail_Vincent_AventCalender
             countdownTimer.Interval = TimeSpan.FromSeconds(1);
             countdownTimer.Tick += CountdownTimer_Tick;
             MettreAJourNoelTimer();
-            CountDownTextBox.Text = NoelTimer; // première valeur affichée
+            CountDownTextBlock.Text = NoelTimer; // première valeur affichée
             countdownTimer.Start();
             // Fin de initialisation du timer
 
@@ -103,7 +103,7 @@ namespace Wail_Vincent_AventCalender
         private void CountdownTimer_Tick(object? sender, EventArgs e)
         {
             MettreAJourNoelTimer();
-            CountDownTextBox.Text = NoelTimer; // mise à jour affichage
+            CountDownTextBlock.Text = NoelTimer; // mise à jour affichage
         }
         // Fin de gestion tick timer
 
@@ -133,7 +133,6 @@ namespace Wail_Vincent_AventCalender
             base.OnClosed(e);
         }
         // Fin de nettoyage fermeture fenêtre
-        }
 
         private void BtnEnterName_Click(object sender, RoutedEventArgs e)
         {
@@ -149,10 +148,10 @@ namespace Wail_Vincent_AventCalender
         {
             if (sender is ComboBox themeSelector && themeSelector.SelectedItem is ComboBoxItem selected)
             {
-                string theme = selected.Content.ToString();
+                string? theme = selected.Content?.ToString();
 
                 // Logique pour changer le thème en fonction de la sélection
-                MessageBox.Show($"Thème sélectionné : {theme}");
+                MessageBox.Show($"Thème sélectionné : {theme ?? "Aucun"}");
             }
         }
 
@@ -160,18 +159,31 @@ namespace Wail_Vincent_AventCalender
         {
             if (BackgroundColorSelector.SelectedItem is ComboBoxItem selected)
             {
-                string hex = selected.Tag.ToString();
+                string? hex = selected.Tag as string;
 
-                try
+                if (!string.IsNullOrWhiteSpace(hex))
                 {
-                    var brush = (SolidColorBrush)new BrushConverter().ConvertFromString(hex);
-
-                    // Change le fond de la fenêtre
-                    this.Background = brush;
+                    try
+                    {
+                        var brushObj = new BrushConverter().ConvertFromString(hex);
+                        if (brushObj is SolidColorBrush brush)
+                        {
+                            // Change le fond de la fenêtre
+                            this.Background = brush;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erreur : couleur invalide.");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Erreur : couleur invalide.");
+                    }
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Erreur : couleur invalide.");
+                    MessageBox.Show("Erreur : aucune couleur sélectionnée.");
                 }
             }
         }
