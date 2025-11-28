@@ -10,8 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="BGM\bgm1.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	  <Folder Include="Ressources\Images"/>
+	  <None Include="Ressources\PhrasesDuJour.txt">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Ressources\BGM\bgm1.wav">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+    </ItemGroup>
 </Project>

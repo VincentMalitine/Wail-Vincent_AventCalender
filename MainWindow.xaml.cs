@@ -22,7 +22,7 @@ namespace Wail_Vincent_AventCalender
     public partial class MainWindow : Window
     {
         // Debut de déclaration du player audio
-        SoundPlayer bgm = new SoundPlayer(@"BGM\bgm1.wav");
+        SoundPlayer bgm = new SoundPlayer(@"Ressources\BGM\bgm1.wav");
         // Fin de déclaration du player audio
 
         // Debut de propriété du décompte de Noël
@@ -121,6 +121,7 @@ namespace Wail_Vincent_AventCalender
 
             var reste = prochainNoel - maintenant;
             NoelTimer = $"{reste.Days}j {reste.Hours:D2}:{reste.Minutes:D2}:{reste.Seconds:D2}";
+            DaysBeforeChristmasTextBlock.Text = $"{reste.Days} jours restants avant Noël!";
         }
         // Fin de mise à jour du string NoelTimer
 
