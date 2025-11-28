@@ -46,7 +46,7 @@ namespace Wail_Vincent_AventCalender
             countdownTimer.Interval = TimeSpan.FromSeconds(1);
             countdownTimer.Tick += CountdownTimer_Tick;
             MettreAJourNoelTimer();
-            test.Text = NoelTimer; // première valeur affichée
+            CountDownTextBox.Text = NoelTimer; // première valeur affichée
             countdownTimer.Start();
             // Fin de initialisation du timer
 
@@ -103,7 +103,7 @@ namespace Wail_Vincent_AventCalender
         private void CountdownTimer_Tick(object? sender, EventArgs e)
         {
             MettreAJourNoelTimer();
-            CountDown.Text = NoelTimer; // mise à jour affichage
+            CountDownTextBox.Text = NoelTimer; // mise à jour affichage
         }
         // Fin de gestion tick timer
 
