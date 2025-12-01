@@ -92,7 +92,7 @@
                        Margin="0,410,0,0" TextAlignment="Center" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Text="Wail Vincent Avent Calender (Ver. 0.15)" Grid.RowSpan="2" Width="280"/>
+                       Text="Wail Vincent Avent Calender (Ver. 0.24)" Grid.RowSpan="2" Width="280"/>
         </Grid>
     </Grid>
 </Window>

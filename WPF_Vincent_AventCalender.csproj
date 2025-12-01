@@ -10,10 +10,11 @@
   </PropertyGroup>
 	<ItemGroup>
 		<None Include="Ressources\BGM\bgm1.wav">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>preserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Include="Ressources\BGM\bgm2.wav">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>preserveNewest</CopyToOutputDirectory>
 		</None>
-		</ItemGroup>
+	  <Resource Include="Ressources\Images\*.png" />
+	</ItemGroup>
 </Project>

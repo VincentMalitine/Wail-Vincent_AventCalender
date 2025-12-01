@@ -8,11 +8,26 @@
       d:DesignHeight="220" d:DesignWidth="220"
       Title="Card24">
 
-    <Grid Background="Blue">
-        <TextBlock Text="It Works Good"
+    <Grid Background="Green">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,20">
+            <Image Source="pack://application:,,,/Ressources/Images/24.png"
+                   Width="150"
+                   Height="150"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Top"
+                   Margin="0,0,0,10"/>
+            <TextBlock Text="Chaque jour est une nouvelle aventure."
                Foreground="Black"
-               FontSize="32"
+               FontSize="12"
                HorizontalAlignment="Center"
-               VerticalAlignment="Center" />
+               VerticalAlignment="Center"
+               TextAlignment="Center"/>
+            <TextBlock Text="Quelles surprises nous attendent aujourd’hui ?"
+               Foreground="Black"
+               FontSize="10"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               TextAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Page>
