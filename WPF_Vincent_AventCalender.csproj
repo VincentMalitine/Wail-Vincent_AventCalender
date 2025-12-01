@@ -8,10 +8,5 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
-	<ItemGroup>
-		<None Include="Ressources\BGM\bgm.wav">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
+	
 </Project>
