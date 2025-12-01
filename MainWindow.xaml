@@ -73,15 +73,17 @@
                            Grid.Row="1"
                            NavigationUIVisibility="Hidden" />
 
-                    <!-- Bottom: Reveal Button -->
-                    <Button Content="Reveal Daily Card"
-                            Grid.Row="2"
-                            Height="40" Width="200" 
-                            Margin="0,16,0,0"
-                            HorizontalAlignment="Center"
-                            Background="#FFD32F2F"
-                            Foreground="White"
-                            Click="Button_TodayCard_Click" />
+                    <!-- Bottom: StackPanel -->
+                    <StackPanel Grid.Row="2">
+                        <Button Content="Révéler la carte du jour"
+                        Height="40" Width="200" 
+                        Margin="0,16,0,0"
+                        HorizontalAlignment="Center"
+                        Background="#FFD32F2F"
+                        Foreground="White"
+                        Click="Button_TodayCard_Click" />
+                        <Button Content="Changer de musique" Click="Button_Click"/>
+                    </StackPanel>
                 </Grid>
             </Border>
 

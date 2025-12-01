@@ -19,15 +19,16 @@ namespace Wail_Vincent_AventCalender
 {
     public partial class MainWindow : Window
     {
-        // Musique de fond (fichier choisi aléatoirement au démarrage).
-        readonly SoundPlayer bgm;
-
+        // Musique de fond.
+        readonly SoundPlayer bgm1 = new SoundPlayer(@"Ressources\BGM\bgm1.wav");
+        readonly SoundPlayer bgm2 = new SoundPlayer(@"Ressources\BGM\bgm2.wav");
         // Texte du décompte vers Noël au format "Dj HH:mm:ss".
         string NoelTimer { get; set; } = string.Empty;
         // Minuterie pour mettre à jour le décompte chaque seconde.
         readonly DispatcherTimer countdownTimer = new DispatcherTimer();
         // Contrôle la boucle de saisie du genre (M/F).
         bool continuer = true;
+        bool bgmchoice = true;
 
         // Nombre de jours restants avant Noël.
         int DaysLeft { get; set; }
@@ -35,14 +36,6 @@ namespace Wail_Vincent_AventCalender
         public MainWindow()
         {
             InitializeComponent();
-
-            // Choix aléatoire de la musique de fond.
-            var random = new Random();
-            var selectedBgmPath = random.Next(10) == 0
-                ? @"Ressources\BGM\bgm2.wav"
-                : @"Ressources\BGM\bgm1.wav";
-
-            bgm = new SoundPlayer(selectedBgmPath);
 
             // Configuration et démarrage de la minuterie.
             countdownTimer.Interval = TimeSpan.FromSeconds(1);
@@ -88,7 +81,14 @@ namespace Wail_Vincent_AventCalender
             }
 
             // Démarrage de la musique de fond en boucle.
-            bgm.PlayLooping();
+            if (bgmchoice == true)
+            {
+                bgm1.PlayLooping();
+            }
+            else
+            {
+                bgm2.PlayLooping();
+            }
 
             Debug.WriteLine($"Décompte initial Noël: {NoelTimer}");
         }
@@ -127,8 +127,10 @@ namespace Wail_Vincent_AventCalender
         protected override void OnClosed(EventArgs e)
         {
             countdownTimer.Stop();
-            bgm.Stop();
-            bgm.Dispose();
+            bgm1.Stop();
+            bgm1.Dispose();
+            bgm2.Stop();
+            bgm2.Dispose();
             base.OnClosed(e);
         }
 
@@ -153,6 +155,22 @@ namespace Wail_Vincent_AventCalender
             else
             {
                 MessageBox.Show("Impossible de charger la page de carte correspondante.");
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (bgmchoice == true)
+            {
+                bgmchoice = false;
+                bgm1.Stop();
+                bgm2.PlayLooping();
+            }
+            else
+            {
+                bgmchoice = true;
+                bgm2.Stop();
+                bgm1.PlayLooping();
             }
         }
     }
