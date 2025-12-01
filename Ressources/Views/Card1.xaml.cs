@@ -18,9 +18,9 @@ namespace Wail_Vincent_AventCalender.Ressources.Views
     /// <summary>
     /// Logique d'interaction pour Card2.xaml
     /// </summary>
-    public partial class Card2 : Page
+    public partial class Card1 : Page
     {
-        public Card2()
+        public Card1()
         {
             InitializeComponent();
         }
