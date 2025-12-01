@@ -19,8 +19,9 @@ namespace Wail_Vincent_AventCalender
 {
     public partial class MainWindow : Window
     {
-        // Musique de fond.
-        readonly SoundPlayer bgm = new SoundPlayer(@"Ressources\BGM\bgm.wav");
+        // Musique de fond (fichier choisi aléatoirement au démarrage).
+        readonly SoundPlayer bgm;
+
         // Texte du décompte vers Noël au format "Dj HH:mm:ss".
         string NoelTimer { get; set; } = string.Empty;
         // Minuterie pour mettre à jour le décompte chaque seconde.
@@ -34,6 +35,14 @@ namespace Wail_Vincent_AventCalender
         public MainWindow()
         {
             InitializeComponent();
+
+            // Choix aléatoire de la musique de fond.
+            var random = new Random();
+            var selectedBgmPath = random.Next(10) == 0
+                ? @"Ressources\BGM\bgm2.wav"
+                : @"Ressources\BGM\bgm1.wav";
+
+            bgm = new SoundPlayer(selectedBgmPath);
 
             // Configuration et démarrage de la minuterie.
             countdownTimer.Interval = TimeSpan.FromSeconds(1);
