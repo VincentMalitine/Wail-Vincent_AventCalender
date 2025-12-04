@@ -161,5 +161,10 @@ namespace Wail_Vincent_AventCalender
                 MessageBox.Show($"Thème sélectionné : {theme ?? "Aucun"}");
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
