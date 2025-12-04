@@ -17,48 +17,48 @@ using System.Diagnostics;
 namespace Wail_Vincent_AventCalender
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logique d'interaction pour la fenêtre principale de l'application Avent (WPF).
+    /// Gère le décompte vers Noël, la musique de fond et quelques interactions utilisateur.
     /// </summary>
     public partial class MainWindow : Window
     {
-        // Debut de déclaration du player audio
-        SoundPlayer bgm = new SoundPlayer(@"Ressources\BGM\bgm1.wav");
-        // Fin de déclaration du player audio
+        // Lecteur audio pour la musique de fond en boucle.
+        private readonly SoundPlayer bgm = new SoundPlayer(@"Ressources\BGM\bgm1.wav");
 
-        // Debut de propriété du décompte de Noël
+        /// <summary>
+        /// Chaîne représentant le décompte vers Noël au format "Dj HH:mm:ss".
+        /// </summary>
         public string NoelTimer { get; private set; } = string.Empty;
-        // Fin de propriété du décompte de Noël
 
-        // Debut de timer de mise à jour
+        // Minuterie (1s) pour mettre à jour l'affichage du décompte.
         private readonly DispatcherTimer countdownTimer = new DispatcherTimer();
-        // Fin de timer de mise à jour
 
-        // Debut de flag boucle saisie genre
-        bool continuer = true;
-        // Fin de flag boucle saisie genre
+        // Flag de contrôle pour la boucle de saisie du genre.
+        private bool continuer = true;
 
-        // Debut de constructeur
+        /// <summary>
+        /// Initialise la fenêtre, configure la minuterie, collecte les informations utilisateur,
+        /// lance la musique et effectue une première mise à jour de l'UI.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
 
-            // Debut de initialisation du timer
+            // Configuration et démarrage de la minuterie.
             countdownTimer.Interval = TimeSpan.FromSeconds(1);
             countdownTimer.Tick += CountdownTimer_Tick;
             MettreAJourNoelTimer();
-            CountDownTextBlock.Text = NoelTimer; // première valeur affichée
+            CountDownTextBlock.Text = NoelTimer;
             countdownTimer.Start();
-            // Fin de initialisation du timer
 
-            // Debut de saisie prénom
+            // Saisie du prénom (optionnelle).
             var prenom = Interaction.InputBox(
                 "Entrez votre prénom :",
                 "Bienvenue",
                 ""
             ).Trim();
-            // Fin de saisie prénom
 
-            // Debut de boucle saisie genre
+            // Saisie du genre avec validation (M/F).
             while (continuer)
             {
                 var genre = Interaction.InputBox(
@@ -76,9 +76,8 @@ namespace Wail_Vincent_AventCalender
                     MessageBox.Show("Veuillez entrer M ou F");
                 }
             }
-            // Fin de boucle saisie genre
 
-            // Debut de affichage salutation
+            // Salutation en fonction du prénom saisi.
             if (string.IsNullOrWhiteSpace(prenom))
             {
                 MessageBox.Show("Bonjour !");
@@ -87,46 +86,51 @@ namespace Wail_Vincent_AventCalender
             {
                 MessageBox.Show($"Bonjour {prenom} !");
             }
-            // Fin de affichage salutation
 
-            // Debut de lancement musique
+            // Lancement de la musique en boucle.
             bgm.PlayLooping();
-            // Fin de lancement musique
 
-            // Debut de trace debug
+            // Trace de diagnostic (décompte initial).
             Debug.WriteLine($"Décompte initial Noël: {NoelTimer}");
-            // Fin de trace debug
         }
-        // Fin de constructeur
 
-        // Debut de gestion tick timer
+        /// <summary>
+        /// Gestion du tick de la minuterie: recalcul du décompte et rafraîchissement de l'UI.
+        /// </summary>
         private void CountdownTimer_Tick(object? sender, EventArgs e)
         {
             MettreAJourNoelTimer();
-            CountDownTextBlock.Text = NoelTimer; // mise à jour affichage
+            CountDownTextBlock.Text = NoelTimer;
         }
-        // Fin de gestion tick timer
 
-        // Debut de mise à jour du string NoelTimer
+        /// <summary>
+        /// Calcule le temps restant jusqu'au prochain 25 décembre et met à jour les éléments d'UI.
+        /// Gère le cas où l'on est déjà le jour de Noël ou après.
+        /// </summary>
         public void MettreAJourNoelTimer()
         {
             var maintenant = DateTime.Now;
+
+            // Détermination de l'année cible pour Noël.
             int annee = (maintenant.Month == 12 && maintenant.Day > 25) ? maintenant.Year + 1 : maintenant.Year;
             var prochainNoel = new DateTime(annee, 12, 25, 0, 0, 0);
 
+            // Si la date actuelle a atteint le 25/12, viser l'année suivante.
             if (maintenant >= prochainNoel)
             {
                 prochainNoel = new DateTime(annee + 1, 12, 25, 0, 0, 0);
             }
 
+            // Construction de la chaîne de décompte et mise à jour de l'UI.
             var reste = prochainNoel - maintenant;
             NoelTimer = $"{reste.Days}j {reste.Hours:D2}:{reste.Minutes:D2}:{reste.Seconds:D2}";
             DaysBeforeChristmasTextBlock.Text = $"{reste.Days} jour(s) restant(s) avant Noël!";
             MessageTextBlock.Text = MessageQuotidien();
         }
-        // Fin de mise à jour du string NoelTimer
 
-        // Debut de nettoyage fermeture fenêtre
+        /// <summary>
+        /// Arrête proprement les ressources (minuterie, audio) à la fermeture de la fenêtre.
+        /// </summary>
         protected override void OnClosed(System.EventArgs e)
         {
             countdownTimer.Stop();
@@ -134,29 +138,34 @@ namespace Wail_Vincent_AventCalender
             bgm.Dispose();
             base.OnClosed(e);
         }
-        // Fin de nettoyage fermeture fenêtre
 
+        // Gestionnaire de clic: saisie du nom (réservé pour future extension UI).
         private void BtnEnterName_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
+        // Gestionnaire de clic: choix du genre (réservé pour future extension UI).
         private void BtnChooseGender_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
+        /// <summary>
+        /// Change le thème en fonction de la sélection du ComboBox des thèmes.
+        /// </summary>
         private void ThemeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender is ComboBox themeSelector && themeSelector.SelectedItem is ComboBoxItem selected)
             {
                 string? theme = selected.Content?.ToString();
 
-                // Logique pour changer le thème en fonction de la sélection
+                // Exemple simple: feedback à l'utilisateur.
                 MessageBox.Show($"Thème sélectionné : {theme ?? "Aucun"}");
             }
         }
 
+        /// <summary>
+        /// Applique une couleur d'arrière-plan à la fenêtre en fonction d'un tag hexadécimal.
+        /// </summary>
         private void BackgroundColorSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (BackgroundColorSelector.SelectedItem is ComboBoxItem selected)
@@ -170,7 +179,7 @@ namespace Wail_Vincent_AventCalender
                         var brushObj = new BrushConverter().ConvertFromString(hex);
                         if (brushObj is SolidColorBrush brush)
                         {
-                            // Change le fond de la fenêtre
+                            // Application de la couleur au fond de la fenêtre.
                             this.Background = brush;
                         }
                         else
@@ -190,8 +199,14 @@ namespace Wail_Vincent_AventCalender
             }
         }
 
+        /// <summary>
+        /// Retourne un message quotidien en fonction du jour du mois.
+        /// Hypothèse: les phrases sont disponibles (une par ligne) dans la ressource texte.
+        /// </summary>
         private string MessageQuotidien()
         {
+            // NOTE: Cette implémentation suppose que le contenu est déjà chargé en mémoire.
+            // Si le fichier doit être lu, remplacer par une lecture de fichier.
             string[] messages = (@"PhrasesDuJour.txt").Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             int index = DateTime.Now.Day % messages.Length;
             return messages[index];
