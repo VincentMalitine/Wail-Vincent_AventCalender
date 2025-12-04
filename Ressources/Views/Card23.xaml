@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Wail_Vincent_AventCalender.Ressources.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="220" d:DesignWidth="220"
       Title="Card23">
 
     <Grid Background="Yellow">
@@ -17,17 +17,17 @@
                VerticalAlignment="Top"
                Margin="0,0,0,10"/>
             <TextBlock Text="Souriez !"
-           Foreground="Black"
-           FontSize="20"
-           HorizontalAlignment="Center"
-           VerticalAlignment="Center"
-           TextAlignment="Center"/>
+               Foreground="Black"
+               FontSize="20"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               TextAlignment="Center"/>
             <TextBlock Text="Aujourd'hui, vous êtes un pas de plus près à Noël."
-           Foreground="Black"
-           FontSize="10"
-           HorizontalAlignment="Center"
-           VerticalAlignment="Center"
-           TextAlignment="Center"/>
+               Foreground="Black"
+               FontSize="10"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               TextAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Page>
