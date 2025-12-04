@@ -124,8 +124,7 @@ namespace Wail_Vincent_AventCalender
             // Construction de la chaîne de décompte et mise à jour de l'UI.
             var reste = prochainNoel - maintenant;
             NoelTimer = $"{reste.Days}j {reste.Hours:D2}:{reste.Minutes:D2}:{reste.Seconds:D2}";
-            DaysBeforeChristmasTextBlock.Text = $"{reste.Days} jour(s) restant(s) avant Noël!";
-            MessageTextBlock.Text = MessageQuotidien();
+            Days_until_Christmas.Text = $"{reste.Days} jour(s) restant(s) avant Noël!";
         }
 
         /// <summary>
@@ -161,55 +160,6 @@ namespace Wail_Vincent_AventCalender
                 // Exemple simple: feedback à l'utilisateur.
                 MessageBox.Show($"Thème sélectionné : {theme ?? "Aucun"}");
             }
-        }
-
-        /// <summary>
-        /// Applique une couleur d'arrière-plan à la fenêtre en fonction d'un tag hexadécimal.
-        /// </summary>
-        private void BackgroundColorSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (BackgroundColorSelector.SelectedItem is ComboBoxItem selected)
-            {
-                string? hex = selected.Tag as string;
-
-                if (!string.IsNullOrWhiteSpace(hex))
-                {
-                    try
-                    {
-                        var brushObj = new BrushConverter().ConvertFromString(hex);
-                        if (brushObj is SolidColorBrush brush)
-                        {
-                            // Application de la couleur au fond de la fenêtre.
-                            this.Background = brush;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erreur : couleur invalide.");
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Erreur : couleur invalide.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Erreur : aucune couleur sélectionnée.");
-                }
-            }
-        }
-
-        /// <summary>
-        /// Retourne un message quotidien en fonction du jour du mois.
-        /// Hypothèse: les phrases sont disponibles (une par ligne) dans la ressource texte.
-        /// </summary>
-        private string MessageQuotidien()
-        {
-            // NOTE: Cette implémentation suppose que le contenu est déjà chargé en mémoire.
-            // Si le fichier doit être lu, remplacer par une lecture de fichier.
-            string[] messages = (@"PhrasesDuJour.txt").Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            int index = DateTime.Now.Day % messages.Length;
-            return messages[index];
         }
     }
 }
