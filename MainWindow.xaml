@@ -39,6 +39,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="32"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="64"/>
@@ -88,7 +89,11 @@
         </StackPanel>
         <!-- FIN AJOUT -->
 
-        <!-- Main Content -->
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Background="#222222">
+            
+        </Border>
+            
+            <!-- Main Content -->
         <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="32,65,32,0" Padding="32" CornerRadius="16" Background="#CCFFFFFF" VerticalAlignment="Top" Height="331">
             <StackPanel>
 

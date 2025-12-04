@@ -11,10 +11,10 @@
 
   <ItemGroup>
 	  <Folder Include="Ressources\Images"/>
-	  <None Include="Ressources\PhrasesDuJour.txt">
+	  <None Include="Ressources\**">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Include="Ressources\BGM\bgm1.wav">
+	  <None Include="Ressources\BGM\**">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
     </ItemGroup>

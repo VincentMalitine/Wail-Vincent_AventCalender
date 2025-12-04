@@ -108,7 +108,7 @@ namespace Wail_Vincent_AventCalender
         // Fin de gestion tick timer
 
         // Debut de mise à jour du string NoelTimer
-        private void MettreAJourNoelTimer()
+        public void MettreAJourNoelTimer()
         {
             var maintenant = DateTime.Now;
             int annee = (maintenant.Month == 12 && maintenant.Day > 25) ? maintenant.Year + 1 : maintenant.Year;
@@ -121,7 +121,7 @@ namespace Wail_Vincent_AventCalender
 
             var reste = prochainNoel - maintenant;
             NoelTimer = $"{reste.Days}j {reste.Hours:D2}:{reste.Minutes:D2}:{reste.Seconds:D2}";
-            DaysBeforeChristmasTextBlock.Text = $"{reste.Days} jours restants avant Noël!";
+            DaysBeforeChristmasTextBlock.Text = $"{reste.Days} jour(s) restant(s) avant Noël!";
             MessageTextBlock.Text = MessageQuotidien();
         }
         // Fin de mise à jour du string NoelTimer
