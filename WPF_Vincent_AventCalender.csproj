@@ -9,15 +9,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-	  <None Include="Ressources\Images\**">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>"
-	  </None>
-	  <None Include="Ressources\**">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Include="Ressources\BGM\**">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-    </ItemGroup>
+	<ItemGroup>
+		<None Include="Ressources\BGM\bgm.wav">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		
+	</ItemGroup>
 </Project>

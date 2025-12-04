@@ -23,7 +23,7 @@ namespace Wail_Vincent_AventCalender
     public partial class MainWindow : Window
     {
         // Lecteur audio pour la musique de fond en boucle.
-        private readonly SoundPlayer bgm = new SoundPlayer(@"Ressources\BGM\bgm1.wav");
+        private readonly SoundPlayer bgm = new SoundPlayer(@"Ressources\BGM\bgm.wav");
 
         /// <summary>
         /// Chaîne représentant le décompte vers Noël au format "Dj HH:mm:ss".
