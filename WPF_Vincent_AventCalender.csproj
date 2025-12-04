@@ -13,6 +13,6 @@
 		<None Include="Ressources\BGM\bgm.wav">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		
+		<ressource Include="Ressources\Views\*.xaml"/>
 	</ItemGroup>
 </Project>
