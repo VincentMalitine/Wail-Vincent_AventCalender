@@ -138,7 +138,7 @@ namespace Wail_Vincent_AventCalender
             base.OnClosed(e);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_TodayCard_Click(object sender, RoutedEventArgs e)
         {
 
         }
