@@ -50,6 +50,10 @@
             <Border Grid.Row="1" Grid.Column="1" Width="280" Height="410" CornerRadius="16" Background="White" 
                     BorderBrush="#FFD32F2F" BorderThickness="4">
                 <Grid Margin="24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -58,17 +62,16 @@
                     <!-- Top: Title -->
                     <TextBlock Name="CountDownTextBlock" 
                                FontSize="24" FontWeight="Bold" Foreground="#FFD32F2F" 
-                               Margin="0,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Center"/>
+                               Margin="112,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Left"/>
                     <TextBlock Name="Days_until_Christmas" 
                                FontSize="14" FontWeight="SemiBold" Foreground="#FFD32F2F" 
-                               Margin="0,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Center" 
+                               Margin="112,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Left" 
                                Padding="0,32,0,0"/>
                     <!-- Middle: Card Placeholder (for future daily cards) -->
-                    <ContentControl Grid.Row="1" x:Name="CardContentHost" 
-                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                    <ContentControl Grid.Row="1" x:Name="CardContentHost" Grid.ColumnSpan="2"/>
                     <!-- Bottom: Reveal Button -->
-                    <Button Content="Reveal Daily Card" Grid.Row="2" Height="40" Width="200" 
-                            Margin="0,16,0,0" HorizontalAlignment="Center" Background="#FFD32F2F" Foreground="White" Click="Button_TodayCard_Click"/>
+                    <Button Content="voir le message du jour " Grid.Row="2" Height="40" Width="200" 
+                            Margin="12,16,0,0" HorizontalAlignment="Left" Background="#FFD32F2F" Foreground="White" Click="Button_TodayCard_Click" Grid.ColumnSpan="2"/>
                 </Grid>
             </Border>
 
@@ -77,7 +80,7 @@
                        Margin="0,410,0,0" TextAlignment="Center" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Text="Wail Vincent Avent Calender (Ver. 0.14)" Grid.RowSpan="2" Width="280"/>
+                       Text="Wail Vincent Avent Calender (Ver. 1.5)" Grid.RowSpan="2" Width="280"/>
         </Grid>
     </Grid>
 </Window>
