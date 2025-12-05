@@ -1,0 +1,14 @@
+﻿<Page x:Class="Wail_Vincent_AventCalender.Ressources.Views.Card"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wail_Vincent_AventCalender.Ressources.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="230" d:DesignWidth="220"
+      Title="Card">
+
+    <Grid Background="Red">
+        <TextBlock Text="ça marche !!!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+    </Grid>
+</Page>

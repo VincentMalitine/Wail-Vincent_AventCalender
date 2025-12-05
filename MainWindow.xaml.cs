@@ -140,7 +140,9 @@ namespace Wail_Vincent_AventCalender
 
         private void Button_TodayCard_Click(object sender, RoutedEventArgs e)
         {
-
+            CardContentHost.Children.Clear();
+            Card card = new Card();
+            CardContentHost.Children.Add(card);
         }
     }
 }
