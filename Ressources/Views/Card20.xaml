@@ -8,11 +8,26 @@
       d:DesignHeight="220" d:DesignWidth="220"
       Title="Card20">
 
-    <Grid Background="Red">
-        <TextBlock Text="It Works Fine"
+    <Grid Background="Green">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,20">
+            <Image Source="pack://application:,,,/Ressources/Images/20.png"
+               Width="150"
+               Height="150"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Top"
+               Margin="0,0,0,0"/>
+            <TextBlock Text="Faites un câlin à"
                Foreground="Black"
-               FontSize="32"
+               FontSize="15"
                HorizontalAlignment="Center"
-               VerticalAlignment="Center" />
+               VerticalAlignment="Center"
+               TextAlignment="Center"/>
+            <TextBlock Text="quelqu'un que vous aimez aujourd'hui !"
+               Foreground="Black"
+               FontSize="10"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               TextAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Page>

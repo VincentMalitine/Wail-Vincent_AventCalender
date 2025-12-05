@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Wail_Vincent_AventCalender.Ressources.Views"
       mc:Ignorable="d" 
       d:DesignHeight="220" d:DesignWidth="220"
-      Title="Card2"
+      Title="Card2">
 
     <Grid Background="Red">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,20">
