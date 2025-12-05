@@ -138,28 +138,9 @@ namespace Wail_Vincent_AventCalender
             base.OnClosed(e);
         }
 
-        // Gestionnaire de clic: saisie du nom (réservé pour future extension UI).
-        private void BtnEnterName_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-        }
 
-        // Gestionnaire de clic: choix du genre (réservé pour future extension UI).
-        private void BtnChooseGender_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// Change le thème en fonction de la sélection du ComboBox des thèmes.
-        /// </summary>
-        private void ThemeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (sender is ComboBox themeSelector && themeSelector.SelectedItem is ComboBoxItem selected)
-            {
-                string? theme = selected.Content?.ToString();
-
-                // Exemple simple: feedback à l'utilisateur.
-                MessageBox.Show($"Thème sélectionné : {theme ?? "Aucun"}");
-            }
         }
     }
 }

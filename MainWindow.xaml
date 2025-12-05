@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Wail_Vincent_AventCalender"
         mc:Ignorable="d"
         Foreground="{DynamicResource Theme_TextBrush}"
-        MaxHeight="450" MaxWidth="300"
-        MinHeight="450" MinWidth="300">
+        MaxHeight="500" MaxWidth="300"
+        MinHeight="500" MinWidth="300">
 
     <Window.Resources>
         <!-- THEME BRUSHES -->
@@ -70,9 +70,16 @@
                                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                     <!-- Bottom: Reveal Button -->
                     <Button Content="Reveal Daily Card" Grid.Row="2" Height="40" Width="200" 
-                            Margin="0,16,0,0" HorizontalAlignment="Center" Background="#FFD32F2F" Foreground="White"/>
+                            Margin="0,16,0,0" HorizontalAlignment="Center" Background="#FFD32F2F" Foreground="White" Click="Button_Click"/>
                 </Grid>
             </Border>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" 
+                       FontSize="10" FontWeight="Light" Foreground="White" 
+                       Margin="0,410,0,0" TextAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="Wail Vincent Avent Calender (Ver. 0.13)" Grid.RowSpan="2" Width="280"/>
         </Grid>
     </Grid>
 </Window>
