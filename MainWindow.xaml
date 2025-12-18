@@ -49,7 +49,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <!-- Centered Card Host -->
-            <Border Grid.Row="1" Grid.Column="1" Width="280" Height="410" CornerRadius="16" Background="White" 
+            <Border Grid.Row="1" Grid.Column="1" Width="280" Height="410" CornerRadius="16" Background="White"  
                     BorderBrush="#FFD32F2F" BorderThickness="4">
                 <Grid Margin="24">
                     <Grid.RowDefinitions>

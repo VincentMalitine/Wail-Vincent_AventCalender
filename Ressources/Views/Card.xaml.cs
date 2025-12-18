@@ -1,28 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
-namespace Wail_Vincent_AventCalender.Ressources.Views
+namespace Wail_Vincent_AventCalender
 {
     /// <summary>
-    /// Logique d'interaction pour Card.xaml
+    /// Représente une carte affichable dans l'interface utilisateur.
     /// </summary>
-    public partial class Card : Page
+    public class Card : UserControl
     {
         public Card()
         {
-            InitializeComponent();
+            // Exemple de contenu minimal pour la carte.
+            Content = new TextBlock
+            {
+                Text = "Carte du jour",
+                FontSize = 24,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
+                VerticalAlignment = System.Windows.VerticalAlignment.Center
+            };
         }
     }
 }
