@@ -1,4 +1,7 @@
-﻿using System.Media;
+﻿using Microsoft.VisualBasic;
+using System;
+using System.Diagnostics;
+using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,9 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using Microsoft.VisualBasic;
-using System;
-using System.Diagnostics;
+using Wail_Vincent_AventCalender.Views;
 
 namespace Wail_Vincent_AventCalender
 {
@@ -138,11 +139,12 @@ namespace Wail_Vincent_AventCalender
             base.OnClosed(e);
         }
 
-        private void Button_TodayCard_Click(object sender, RoutedEventArgs e)
+        private void Btn_showcard_Click(object sender, RoutedEventArgs e)
         {
-            Card card = new Card();
-            CardContentHost.Children.Clear();
-            CardContentHost.Children.Add(card);
+
+            CartePagecal cartePagecal = new CartePagecal();
+            cartePagecal.Show();
+
         }
     }
 }

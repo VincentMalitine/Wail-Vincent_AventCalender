@@ -1,0 +1,80 @@
+﻿<Window x:Class="Wail_Vincent_AventCalender.Views.CartePagecal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wail_Vincent_AventCalender.Views"
+        mc:Ignorable="d"
+        Foreground="{DynamicResource Theme_TextBrush}"
+  MaxHeight="450" MaxWidth="300"
+  MinHeight="450" MinWidth="300">
+
+
+
+    <Window.Resources>
+        <!-- THEME BRUSHES -->
+        <SolidColorBrush x:Key="Red_BackgroundBrush" Color="#B00000" />
+        <SolidColorBrush x:Key="Red_TextBrush" Color="White" />
+        <SolidColorBrush x:Key="Green_BackgroundBrush" Color="#006B00" />
+        <SolidColorBrush x:Key="Green_TextBrush" Color="White" />
+        <SolidColorBrush x:Key="Gold_BackgroundBrush" Color="#D4AF37" />
+        <SolidColorBrush x:Key="Gold_TextBrush" Color="#3C2510" />
+
+        <SolidColorBrush x:Key="Theme_BackgroundBrush" Color="#B00000" />
+        <SolidColorBrush x:Key="Theme_TextBrush" Color="White" />
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Foreground" Value="{DynamicResource Theme_TextBrush}"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Background" Value="#FFF"/>
+            <Setter Property="Foreground" Value="#006B00"/>
+            <Setter Property="Margin" Value="0,8,0,0"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="0,8,0,0"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Centered Card Host -->
+            <Border Grid.Row="1" Grid.Column="1" Width="280" Height="410" CornerRadius="16" Background="White" 
+                    BorderBrush="#006B00" BorderThickness="30" ClipToBounds="True">
+                <Grid Margin="24">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <!-- Top: Title -->
+                    <TextBlock Name="CountDownTextBlock" 
+                               FontSize="24" FontWeight="Bold" Foreground="#006B00" 
+                               Margin="0,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Center"/>
+                    <TextBlock Name="Days_until_Christmas" 
+                               FontSize="14" FontWeight="SemiBold" Foreground="#006B00" 
+                               Margin="0,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Center" 
+                               Padding="0,32,0,0"/>
+                    <!-- Middle: Card Placeholder (for future daily cards) -->
+                    <ContentControl Grid.Row="1" x:Name="CardContentHost" 
+                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0">
+                        <Image Margin="-22,0,-21,-23" Source="/image/noel-rouge.png" Stretch="Fill"/>
+                    </ContentControl>
+
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

@@ -66,12 +66,10 @@
                                Margin="0,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Center" 
                                Padding="0,32,0,0"/>
                     <!-- Middle: Card Placeholder (for future daily cards) -->
-                    <Grid Grid.Row="1" Name="CardContentHost" Height="230" Width="220">
-                        
-                    </Grid>
+                    <ContentControl Grid.Row="1" x:Name="CardContentHost" Margin="10,0,-10,0"/>
                     <!-- Bottom: Reveal Button -->
                     <Button Content="Reveal Daily Card" Grid.Row="2" Height="40" Width="200" 
-                            Margin="0,16,0,0" HorizontalAlignment="Center" Background="#FFD32F2F" Foreground="White" Click="Button_TodayCard_Click"/>
+                            Margin="0,16,0,0" HorizontalAlignment="Center" Background="#FFD32F2F" Foreground="White"  Name="Btn_showcard" Click="Btn_showcard_Click"/>
                 </Grid>
             </Border>
 
@@ -80,7 +78,7 @@
                        Margin="0,410,0,0" TextAlignment="Center" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Text="Wail Vincent Avent Calender (Ver. 0.15)" Grid.RowSpan="2" Width="280"/>
+                       Text="Wail Vincent Avent Calender (Ver 1.5)" Grid.RowSpan="2" Width="280"/>
         </Grid>
     </Grid>
 </Window>

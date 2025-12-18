@@ -10,11 +10,10 @@
   </PropertyGroup>
 
 	<ItemGroup>
+	  <Resource Include="image\noel-rouge.png" />
+	  <Resource Include="image\noel.gif" />
 		<None Include="Ressources\BGM\bgm.wav">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Include="Ressources\Views\card.xaml">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
+		</ItemGroup>
 </Project>
