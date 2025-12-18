@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wail_Vincent_AventCalender"
         mc:Ignorable="d"
-         Foreground="{DynamicResource Theme_TextBrush}">
+        Foreground="{DynamicResource Theme_TextBrush}"
+        MaxHeight="500" MaxWidth="300"
+        MinHeight="500" MinWidth="300">
 
     <Window.Resources>
         <!-- THEME BRUSHES -->
@@ -34,78 +36,49 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/image/noel.gif" Stretch="UniformToFill"/>
-        </Grid.Background>
+    <Grid Background="{DynamicResource Theme_BackgroundBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Centered Card Host -->
+            <Border Grid.Row="1" Grid.Column="1" Width="280" Height="410" CornerRadius="16" Background="White" 
+                    BorderBrush="#FFD32F2F" BorderThickness="4">
+                <Grid Margin="24">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <!-- Top: Title -->
+                    <TextBlock Name="CountDownTextBlock" 
+                               FontSize="24" FontWeight="Bold" Foreground="#FFD32F2F" 
+                               Margin="0,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Center"/>
+                    <TextBlock Name="Days_until_Christmas" 
+                               FontSize="14" FontWeight="SemiBold" Foreground="#FFD32F2F" 
+                               Margin="0,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Center" 
+                               Padding="0,32,0,0"/>
+                    <!-- Middle: Card Placeholder (for future daily cards) -->
+                    <ContentControl Grid.Row="1" x:Name="CardContentHost" Margin="10,0,-10,0"/>
+                    <!-- Bottom: Reveal Button -->
+                    <Button Content="Reveal Daily Card" Grid.Row="2" Height="40" Width="200" 
+                            Margin="0,16,0,0" HorizontalAlignment="Center" Background="#FFD32F2F" Foreground="White"  Name="Btn_showcard" Click="Btn_showcard_Click"/>
+                </Grid>
+            </Border>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="64"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="64"/>
-        </Grid.ColumnDefinitions>
-
-        <!-- Header -->
-        <TextBlock 
-            Text="Calendrier de l'Avent" 
-            FontSize="32" 
-            FontWeight="Bold" 
-            Grid.Row="0" Grid.Column="1" 
-            HorizontalAlignment="Center" VerticalAlignment="Top" 
-            Margin="0,24,0,8"/>
-        <!-- User Personalization -->
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,8">
-            <TextBlock x:Name="WelcomeTextBlock" FontSize="18"/>
-            <TextBlock x:Name="GenderMessageTextBlock" Margin="16,0,0,0" />
-        </StackPanel>
-
-        <!-- AJOUT : Sélecteur couleur du fond + texte jours restants -->
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,70,0,0">
-
-            <TextBlock Text="Changer la couleur du fond :" FontWeight="Bold"/>
-
-            <ComboBox x:Name="BackgroundColorSelector" Width="211"
-                      SelectionChanged="BackgroundColorSelector_SelectionChanged">
-                <ComboBoxItem Content="Rouge" Tag="#B00000"/>
-                <ComboBoxItem Content="Vert" Tag="#006B00"/>
-                <ComboBoxItem Content="Doré" Tag="#D4AF37"/>
-                <ComboBoxItem Content="Bleu" Tag="#0033CC"/>
-                <ComboBoxItem Content="Blanc" Tag="#FFFFFF"/>
-            </ComboBox>
-            <TextBlock x:Name="DaysBeforeChristmasText"
-                       FontSize="18" FontWeight="Bold"
-                       Text="Il reste 2 jours avant Noël." Height="38" RenderTransformOrigin="0.5,0.5" Width="223">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="3.288"/>
-                        <RotateTransform Angle="-3.216"/>
-                        <TranslateTransform Y="6.358"/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-        </StackPanel>
-        <!-- FIN AJOUT -->
-
-        <!-- Main Content -->
-        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="32,65,32,20" Padding="32" CornerRadius="16" Background="#CCBFBFAF" VerticalAlignment="Top" Height="331">
-            <StackPanel>
-
-                <!-- Countdown Section -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock x:Name="DaysLeftTextBlock" FontSize="24" FontWeight="Bold" />
-                    <TextBlock x:Name="CountdownTextBlock" FontSize="24" FontWeight="Bold" />
-                </StackPanel>
-
-                <!-- Message + image -->
-
-            </StackPanel>
-        </Border>
+            <TextBlock Grid.Row="1" Grid.Column="1" 
+                       FontSize="10" FontWeight="Light" Foreground="White" 
+                       Margin="0,410,0,0" TextAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="Wail Vincent Avent Calender (Ver 1.5)" Grid.RowSpan="2" Width="280"/>
+        </Grid>
     </Grid>
 </Window>

@@ -10,9 +10,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<None Include="image/**">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
+	  <Resource Include="image\noel-rouge.png" />
+	  <Resource Include="image\noel.gif" />
 	</ItemGroup>
 
 </Project>
