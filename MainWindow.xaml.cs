@@ -89,7 +89,7 @@ namespace Wail_Vincent_AventCalender
             }
 
             // Lancement de la musique en boucle.
-           // bgm.PlayLooping();
+            bgm.PlayLooping();
 
             // Trace de diagnostic (décompte initial).
             Debug.WriteLine($"Décompte initial Noël: {NoelTimer}");

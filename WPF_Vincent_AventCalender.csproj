@@ -12,5 +12,8 @@
 	<ItemGroup>
 	  <Resource Include="image\noel-rouge.png" />
 	  <Resource Include="image\noel.gif" />
-	</ItemGroup>
+		<None Include="Ressources\BGM\bgm.wav">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		</ItemGroup>
 </Project>
