@@ -10,6 +10,7 @@
         MinHeight="500" MinWidth="300">
 
     <Window.Resources>
+        
         <!-- THEME BRUSHES -->
         <SolidColorBrush x:Key="Red_BackgroundBrush" Color="#B00000" />
         <SolidColorBrush x:Key="Red_TextBrush" Color="White" />
@@ -68,11 +69,20 @@
                                Padding="0,32,0,0"/>
 
                     <!-- Middle: Card Placeholder (for future daily cards) -->
-                    <Frame x:Name="MainContent"
-                           Height="220" Width="220"
-                           Grid.Row="1"
-                           NavigationUIVisibility="Hidden" 
-                           BorderBrush="DarkGoldenrod"/>
+                    <Border Grid.Row="1"
+                            CornerRadius="16"
+                            BorderBrush="DarkGoldenrod"
+                            BorderThickness="2"
+                            Height="200"
+                            Width="220"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            ClipToBounds="True">
+                        <Frame x:Name="MainContent"
+                                       NavigationUIVisibility="Hidden"
+                                       Background="Transparent">
+                        </Frame>
+                    </Border>
 
                     <!-- Bottom: StackPanel -->
                     <StackPanel Grid.Row="2">
@@ -93,7 +103,7 @@
                        Margin="0,410,0,0" TextAlignment="Center" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Text="Wail Vincent Avent Calender (Ver. 1.0)" Grid.RowSpan="2" Width="280"/>
+                       Text="Wail Vincent Avent Calender (Ver. 1.01)" Grid.RowSpan="2" Width="280"/>
         </Grid>
     </Grid>
 </Window>

@@ -5,29 +5,34 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Wail_Vincent_AventCalender.Ressources.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="220" d:DesignWidth="220"
+      d:DesignHeight="200" d:DesignWidth="220"
       Title="Card9">
 
-    <Grid Background="Blue">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,20">
-            <Image Source="pack://application:,,,/Ressources/Images/9.png"
-                   Width="150"
-                   Height="150"
-                   HorizontalAlignment="Stretch"
-                   VerticalAlignment="Top"
-                   Margin="0,0,0,10"/>
-            <TextBlock Text="Faites une bonne action"
-                       Foreground="Black"
-                       FontSize="10"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       TextAlignment="Center"/>
-            <TextBlock Text="sans rien attendre en retour."
-                       Foreground="Black"
-                       FontSize="10"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       TextAlignment="Center"/>
-        </StackPanel>
-    </Grid>
+    <Border Grid.Row="1"
+        CornerRadius="16"
+        BorderBrush="DarkGoldenrod"
+        BorderThickness="2"
+        Height="200"
+        Width="220"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        ClipToBounds="True"
+        Background="Blue">
+        <Grid>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="pack://application:,,,/Ressources/Images/9.png"
+                       Width="150"
+                       Height="150"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Top"
+                       Margin="0,0,0,10"/>
+                <TextBlock Text="Faites une bonne action sans rien attendre en retour."
+                           Foreground="Black"
+                           FontSize="10"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+    </Border>
 </Page>
