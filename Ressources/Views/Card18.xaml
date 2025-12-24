@@ -16,9 +16,15 @@
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Top"
                    Margin="0,0,0,10"/>
-            <TextBlock Text="It Works Fine"
+            <TextBlock Text="Aujourd'hui,"
                        Foreground="Black"
-                       FontSize="12"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            <TextBlock Text="offrez un compliment sincère à quelqu'un."
+                       Foreground="Black"
+                       FontSize="10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        TextAlignment="Center"/>

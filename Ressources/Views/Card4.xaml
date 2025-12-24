@@ -8,7 +8,7 @@
       d:DesignHeight="220" d:DesignWidth="220"
       Title="Card4">
 
-    <Grid Background="Red">
+    <Grid Background="Green">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,20">
             <Image Source="pack://application:,,,/Ressources/Images/4.png"
                    Width="150"
@@ -16,9 +16,15 @@
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Top"
                    Margin="0,0,0,10"/>
-            <TextBlock Text="It Works Fine"
+            <TextBlock Text="Regardez un film de Noël"
                        Foreground="Black"
-                       FontSize="12"
+                       FontSize="10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            <TextBlock Text="et laissez-vous emporter par la magie."
+                       Foreground="Black"
+                       FontSize="10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        TextAlignment="Center"/>

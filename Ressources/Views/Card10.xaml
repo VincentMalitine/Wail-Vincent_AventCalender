@@ -16,9 +16,15 @@
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Top"
                    Margin="0,0,0,10"/>
-            <TextBlock Text="It Works Fine"
+            <TextBlock Text="Aujourd'hui, c'est le moment parfait pour chanter"
                        Foreground="Black"
-                       FontSize="12"
+                       FontSize="10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            <TextBlock Text="votre chanson de Noël préférée."
+                       Foreground="Black"
+                       FontSize="10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        TextAlignment="Center"/>

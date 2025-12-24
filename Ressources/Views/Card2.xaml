@@ -16,9 +16,9 @@
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Top"
                    Margin="0,0,0,10"/>
-            <TextBlock Text="It Works Fine"
+            <TextBlock Text="Aujourd'hui, portez un pull de Noël amusant !"
                        Foreground="Black"
-                       FontSize="12"
+                       FontSize="10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        TextAlignment="Center"/>

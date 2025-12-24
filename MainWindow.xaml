@@ -71,7 +71,8 @@
                     <Frame x:Name="MainContent"
                            Height="220" Width="220"
                            Grid.Row="1"
-                           NavigationUIVisibility="Hidden" />
+                           NavigationUIVisibility="Hidden" 
+                           BorderBrush="DarkGoldenrod"/>
 
                     <!-- Bottom: StackPanel -->
                     <StackPanel Grid.Row="2">
