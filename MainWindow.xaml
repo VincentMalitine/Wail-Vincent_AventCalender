@@ -57,6 +57,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
+
                     <!-- Top: Title -->
                     <TextBlock Name="CountDownTextBlock" 
                                FontSize="24" FontWeight="Bold" Foreground="#FFD32F2F" 
@@ -65,13 +66,22 @@
                                FontSize="14" FontWeight="SemiBold" Foreground="#FFD32F2F" 
                                Margin="0,0,0,16" TextAlignment="Center" Grid.Row="0" HorizontalAlignment="Center" 
                                Padding="0,32,0,0"/>
+
                     <!-- Middle: Card Placeholder (for future daily cards) -->
-                    <Grid Grid.Row="1" Name="CardContentHost" Height="230" Width="220">
-                        
-                    </Grid>
+                    <Frame x:Name="MainContent"
+                           Height="220" Width="220"
+                           Grid.Row="1"
+                           NavigationUIVisibility="Hidden" />
+
                     <!-- Bottom: Reveal Button -->
-                    <Button Content="Reveal Daily Card" Grid.Row="2" Height="40" Width="200" 
-                            Margin="0,16,0,0" HorizontalAlignment="Center" Background="#FFD32F2F" Foreground="White" Click="Button_TodayCard_Click"/>
+                    <Button Content="Reveal Daily Card"
+                            Grid.Row="2"
+                            Height="40" Width="200" 
+                            Margin="0,16,0,0"
+                            HorizontalAlignment="Center"
+                            Background="#FFD32F2F"
+                            Foreground="White"
+                            Click="Button_TodayCard_Click" />
                 </Grid>
             </Border>
 

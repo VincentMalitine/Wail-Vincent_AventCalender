@@ -13,22 +13,23 @@ using System.Windows.Threading;
 using Microsoft.VisualBasic;
 using System;
 using System.Diagnostics;
+using Wail_Vincent_AventCalender.Ressources.Views;
 
 namespace Wail_Vincent_AventCalender
 {
     public partial class MainWindow : Window
     {
         // Musique de fond.
-        private readonly SoundPlayer bgm = new SoundPlayer(@"Ressources\BGM\bgm.wav");
-
+        readonly SoundPlayer bgm = new SoundPlayer(@"Ressources\BGM\bgm.wav");
         // Texte du décompte vers Noël au format "Dj HH:mm:ss".
-        public string NoelTimer { get; private set; } = string.Empty;
-
+        string NoelTimer { get; set; } = string.Empty;
         // Minuterie pour mettre à jour le décompte chaque seconde.
-        private readonly DispatcherTimer countdownTimer = new DispatcherTimer();
-
+        readonly DispatcherTimer countdownTimer = new DispatcherTimer();
         // Contrôle la boucle de saisie du genre (M/F).
-        private bool continuer = true;
+        bool continuer = true;
+
+        // Nombre de jours restants avant Noël.
+        int DaysLeft { get; set; }
 
         public MainWindow()
         {
@@ -110,6 +111,7 @@ namespace Wail_Vincent_AventCalender
 
             NoelTimer = $"{reste.Days}j {reste.Hours:D2}:{reste.Minutes:D2}:{reste.Seconds:D2}";
             Days_until_Christmas.Text = $"{reste.Days} jour(s) restant(s) avant Noël!";
+            DaysLeft = reste.Days + 1;
         }
 
         // Libère la minuterie et la musique à la fermeture de la fenêtre.
@@ -121,11 +123,28 @@ namespace Wail_Vincent_AventCalender
             base.OnClosed(e);
         }
 
-        // Affiche la carte du jour dans la zone prévue de la fenêtre.
+        // Affiche la carte correspondant au nombre de jours restants.
         private void Button_TodayCard_Click(object sender, RoutedEventArgs e)
         {
-            Card card = new Card();
-            card.Show();
+            // Exemple : reste 5 jours -> Card5 (Page).
+            var typeName = $"Wail_Vincent_AventCalender.Ressources.Views.Card{DaysLeft}";
+            var type = Type.GetType(typeName);
+
+            if (type == null)
+            {
+                MessageBox.Show($"Vous n'êtes pas/plus en décembre.");
+                return;
+            }
+
+            if (Activator.CreateInstance(type) is Page page)
+            {
+                // MainContent doit être un Frame dans MainWindow.xaml.
+                MainContent.Content = page;
+            }
+            else
+            {
+                MessageBox.Show("Impossible de charger la page de carte correspondante.");
+            }
         }
     }
 }
