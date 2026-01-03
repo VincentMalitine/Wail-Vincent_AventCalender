@@ -124,9 +124,8 @@ namespace Wail_Vincent_AventCalender
         // Affiche la carte du jour dans la zone prévue de la fenêtre.
         private void Button_TodayCard_Click(object sender, RoutedEventArgs e)
         {
-            var card = new Card();
-            CardContentHost.Children.Clear();
-            CardContentHost.Children.Add(card);
+            Card card = new Card();
+            card.Show();
         }
     }
 }
