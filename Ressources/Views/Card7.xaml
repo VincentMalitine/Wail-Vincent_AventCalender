@@ -32,7 +32,13 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            TextAlignment="Center"/>
-                <TextBlock Text="Écrivez trois choses pour lesquelles vous êtes reconnaissant."
+                <TextBlock Text="Écrivez trois choses"
+                           Foreground="Black"
+                           FontSize="10"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"/>
+                <TextBlock Text="pour lesquelles vous êtes reconnaissant."
                            Foreground="Black"
                            FontSize="10"
                            HorizontalAlignment="Center"
